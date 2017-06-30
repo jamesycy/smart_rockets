@@ -29,7 +29,7 @@ function draw() {
 function Population() {
   this.rockets = [];
   this.popsize = 100;
-  this.matingpool;
+  this.selectionpool;
 
   for (var i = 0; i < this.popsize; i++) {
     this.rockets[i] = new Rocket();
@@ -75,12 +75,12 @@ function Population() {
       if (this.rockets[i].destroy) this.rockets[i].fitness / 2
     }
 
-    this.matingpool = [];
+    this.selectionpool = [];
 
     for (var i = 0; i < this.popsize; i++) {
       var n = this.rockets[i].fitness * 100;
       for (var j = 0; j < n; j++) {
-        this.matingpool.push(this.rockets[i]);
+        this.selectionpool.push(this.rockets[i]);
       }
     }
 
@@ -90,8 +90,8 @@ function Population() {
     var newPopulation = [];
 
     for (var i = 0; i < this.rockets.length; i++) {
-      var partnerA = random(this.matingpool).dna;
-      var partnerB = random(this.matingpool).dna;
+      var partnerA = random(this.selectionpool).dna;
+      var partnerB = random(this.selectionpool).dna;
       var child = partnerA.crossover(partnerB);
       child.mutate();
       newPopulation[i] = new Rocket(child);
@@ -146,12 +146,12 @@ function Rocket(dna) {
     this.dna = new DNA();
   }
 
-  this.applyForce = function(force) {
+  this.addForce = function(force) {
     this.acc.add(force);
   }
 
   this.update = function() {
-    this.applyForce(this.dna.genes[count]);
+    this.addForce(this.dna.genes[count]);
 
     this.vel.add(this.acc);
     this.pos.add(this.vel);
