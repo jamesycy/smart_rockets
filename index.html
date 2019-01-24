@@ -1,11 +1,82 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-  </head>
-  <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
-    <script language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
-    <script src="./sketch.js"></script>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Smark Rocket - James</title>
+    
+    <link rel="stylesheet" href="./css/style.css">    
+
+</head>
+<body>
+    <div class="toolbar">
+        <!-- <h1>Smart Rocket</h1> -->
+
+        <!-- <button type="button" class="toggle">
+            <div class="toggle-bar"></div>
+            <div class="toggle-bar"></div>
+            <div class="toggle-bar"></div> -->
+        <!-- </button> -->
+    </div>
+
+    <div id="canvas"></div>
+
+    <div class="controls shown">
+
+        <div class="config" id="config">            
+            <h4>Config</h4>
+            <hr>
+            
+            <label>Population Size:</label>
+            <p id="popsize">0</p>
+            <div id="popsizeControl"></div>
+
+            <label>Mutation Rate:</label>
+            <p id="mutation">0</p>
+            <div id="mutationControl"></div>
+
+            <label>Reset at frame:</label>
+            <p id="lifespan">0</p>
+            <div id="lifespanControl"></div>
+
+        </div>
+
+        <div class="report" id="report">
+            <h4>Reports</h4>
+            <hr>
+
+            <label>Current Frame:</label>
+            <div id="count"></div>
+
+            <label>No. of Iterations:</label>
+            <div id="iteration"></div>
+
+            <label>Successful Hits:</label>
+            <div id="successful"></div>
+
+            <label>Avg. Fitness:</label>
+            <div id="avgFitness"></div>
+
+            <label>Max Fitness:</label>
+            <div id="maxFitness"></div>
+
+        </div>
+
+        <button class="close">&#10005</button>
+    </div>
+
+    <script src="./lib/p5.min.js"></script>
+    <script src="./lib/p5.dom.min.js"></script>
+    <script src="./js/sketch.js"></script>
+    <script src="./js/toggle.js"></script>
+
+    <script src="./js/simulation.js"></script>
+    <script src="./js/population.js"></script>
+    <script src="./js/rocket.js"></script>
+    <script src="./js/dna.js"></script>
+
+    <script src="./js/variables.js"></script>
+    
+</body>
 </html>
